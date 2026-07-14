@@ -2,6 +2,9 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import Captain from '../models/captain.models.js'
 import BlackList from '../models/blacklist.model.js'
+import { subscribeToEvent } from '../service/rabit.js'
+
+const pendingRequests = [];
 export async function RegisterController(req, resp) {
     try {
         const { name, email, password } = req.body
@@ -113,5 +116,13 @@ export async function AvailableController(req, resp) {
     }
     catch (error) {
         return resp.status(500).json({ message: "Internal Server Error", error })
+    }
+}
+export async function AcceptRide(req,resp){
+    try{
+
+    }
+    catch(error){
+        
     }
 }
